@@ -4,6 +4,7 @@
 
 body {
   @apply bg-[#0B0E14] text-white font-sans antialiased;
+  overscroll-behavior-y: none;
 }
 
 .clip-path-polygon {

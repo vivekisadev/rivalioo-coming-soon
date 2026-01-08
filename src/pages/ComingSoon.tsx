@@ -46,17 +46,19 @@ const ComingSoon = () => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
         // 1. Title Reveal (Slide Up)
+        const isMobile = window.innerWidth < 768;
+
         tl.to('.title-line', {
             y: 0,
-            duration: 1.2,
-            stagger: 0.15,
+            duration: isMobile ? 0.8 : 1.2,
+            stagger: isMobile ? 0.1 : 0.15,
             ease: "power4.out"
         })
             // 2. Hero Content Fade In
             .fromTo('.hero-content',
                 { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
-                "-=0.8"
+                { y: 0, opacity: 1, duration: 0.6, stagger: isMobile ? 0.05 : 0.1 },
+                isMobile ? "-=0.4" : "-=0.8"
             );
 
         // 3. Right Column Entrance (Staggered Children)
@@ -169,7 +171,7 @@ const ComingSoon = () => {
                     throw error;
                 }
             } else {
-                setClaimMessage("An email with a gift box containing a redeem code will arrive in your mail.");
+                setClaimMessage("An email with a gift box containing a redeem code has been sent. Check your spam folder if needed.");
                 localStorage.setItem('gift_claimed', '1');
             }
 
@@ -215,7 +217,7 @@ const ComingSoon = () => {
                 // 2. Success Feedback
                 setEmail('');
                 setFocused(false);
-                setSubscribeStatus({ type: 'success', message: "You've been added to the priority waitlist! Check your email soon." });
+                setSubscribeStatus({ type: 'success', message: "You've been added! Please check your inbox (and spam folder) for confirmation." });
 
             } catch (err) {
                 console.error("Error subscribing:", err);
@@ -234,24 +236,25 @@ const ComingSoon = () => {
     ];
 
     return (
-        <div ref={containerRef} className="bg-[#0B0E14] min-h-screen lg:h-screen w-full font-sans text-white relative flex flex-col pt-8 lg:pt-0 overflow-x-hidden overflow-y-auto lg:overflow-hidden">
+
+        <div ref={containerRef} className="bg-[#0B0E14] min-h-screen lg:h-screen w-full font-sans text-white relative flex flex-col lg:pt-0 lg:overflow-hidden touch-pan-y">
 
             {/* Background */}
-            <div className="absolute inset-0 z-0 parallax-bg scale-105">
+            <div className="fixed inset-0 z-0 parallax-bg scale-105">
                 <img src={bgImage} alt="Bg" className="absolute inset-0 w-full h-full object-cover opacity-20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-transparent to-transparent"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0B0E14_120%)]"></div>
             </div>
 
             {/* MAIN CONTENT (Split Layout) */}
-            <div className="flex-1 w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col justify-start lg:justify-center pt-2 lg:pt-0">
+            <div className="flex-1 w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col justify-start lg:justify-center pt-0 lg:pt-0">
 
                 {/* Top Logo */}
-                <div className="w-full flex justify-center mb-4 lg:mb-2 mt-1">
+                <div className="w-full flex justify-center mb-4 lg:mb-2 mt-2 lg:mt-1">
                     <img src={logoFull} alt="RIVALLIO" className="h-20 md:h-24 object-contain opacity-90 drop-shadow-2xl" />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 w-full items-start lg:items-center pb-8 lg:pb-0">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 w-full items-start lg:items-center pb-8 lg:pb-0">
 
                     {/* LEFT COLUMN: Hero & Form */}
                     <div
@@ -261,7 +264,7 @@ const ComingSoon = () => {
                         {/* Status Badge */}
                         <div className="hero-content opacity-0">
                             <Tooltip text="System Status: Online & Stable" position="right">
-                                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#13161C]/80 border border-white/5 mb-8 backdrop-blur-md shadow-2xl group cursor-default hover:border-[#2FE9A9]/30 transition-colors">
+                                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#13161C]/95 lg:bg-[#13161C]/80 border border-white/5 mb-8 backdrop-blur-none lg:backdrop-blur-md shadow-2xl group cursor-default hover:border-[#2FE9A9]/30 transition-colors will-change-transform">
                                     <span className="relative flex h-2 w-2">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FE9A9] opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2FE9A9]"></span>
@@ -280,8 +283,8 @@ const ComingSoon = () => {
                             </div>
                         </h1>
 
-                        <div className="w-full max-w-lg mb-10 hero-content opacity-0">
-                            <div className="relative p-6 rounded-xl bg-[#13161C]/50 backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500">
+                        <div className="w-full max-w-lg mb-6 hero-content opacity-0">
+                            <div className="relative p-6 rounded-xl bg-[#13161C]/90 lg:bg-[#13161C]/50 backdrop-blur-none lg:backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500 will-change-transform">
                                 {/* Decorational glow */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#2FE9A9]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-[#2FE9A9]/10 transition-colors duration-500"></div>
 
@@ -293,13 +296,13 @@ const ComingSoon = () => {
                         </div>
 
                         {/* Premium Email Form */}
-                        <div className="w-full max-w-md relative mb-4 hero-content opacity-0">
+                        <div className="w-full max-w-md relative mb-2 lg:mb-12 hero-content opacity-0">
                             <div className={`relative group`}>
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r from-[#2FE9A9]/30 to-blue-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-1000 ${focused ? 'opacity-100 duration-200' : ''}`}></div>
 
                                 <form
                                     onSubmit={handleSubscribe}
-                                    className={`relative flex items-center bg-[#0B0E14] backdrop-blur-xl rounded-xl border transition-all duration-300 ${focused
+                                    className={`relative flex items-center bg-[#0B0E14] lg:bg-[#0B0E14]/80 backdrop-blur-none lg:backdrop-blur-xl rounded-xl border transition-all duration-300 ${focused
                                         ? 'border-[#2FE9A9] shadow-[0_0_20px_rgba(47,233,169,0.1)]'
                                         : 'border-white/10 hover:border-white/20'
                                         }`}
@@ -318,8 +321,8 @@ const ComingSoon = () => {
                                         onFocus={() => setFocused(true)}
                                         onBlur={() => setFocused(false)}
                                         disabled={isSubmitting}
-                                        placeholder="Enter your email address"
-                                        className="w-full bg-transparent border-none py-5 pl-14 pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
+                                        placeholder="Enter your email"
+                                        className="w-full bg-transparent border-none py-5 pl-14 pr-20 sm:pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
                                     />
                                     <div className="absolute right-0 top-0 bottom-0 flex h-full p-1">
                                         <Tooltip text="Join the priority waitlist" position="bottom">
@@ -348,7 +351,7 @@ const ComingSoon = () => {
                             {/* Subscribe Status Message */}
                             {subscribeStatus && (
                                 <div
-                                    className={`absolute -bottom-10 left-0 text-[11px] font-bold uppercase tracking-wide flex items-center gap-2 animate-in slide-in-from-top-2 fade-in duration-300 ${subscribeStatus.type === 'success' ? 'text-[#2FE9A9]' : 'text-red-500'}`}
+                                    className={`relative mt-3 lg:absolute lg:-bottom-10 lg:mt-0 lg:left-0 text-[11px] font-bold uppercase tracking-wide flex items-center gap-2 animate-in slide-in-from-top-2 fade-in duration-300 ${subscribeStatus.type === 'success' ? 'text-[#2FE9A9]' : 'text-red-500'}`}
                                 >
                                     <span className={`w-1.5 h-1.5 rounded-full ${subscribeStatus.type === 'success' ? 'bg-[#2FE9A9]' : 'bg-red-500'} animate-pulse`}></span>
                                     {subscribeStatus.message}
@@ -358,7 +361,7 @@ const ComingSoon = () => {
 
                         {/* Mobile Action Buttons (Grid Layout) */}
 
-                        <div className="w-full grid grid-cols-2 gap-3 mt-6 lg:hidden hero-content opacity-0">
+                        <div className="w-full grid grid-cols-2 gap-3 mt-4 lg:hidden hero-content opacity-0">
                             {/* Gift Button (Mobile Compact) */}
                             <button
                                 onClick={handleGiftClick}
@@ -423,7 +426,7 @@ const ComingSoon = () => {
                     >
                         {/* FAQ ACCORDION */}
                         <div className="w-full max-w-md mb-10 text-left right-content opacity-0">
-                            <h4 className="flex items-center gap-3 text-xs font-bold uppercase text-[#2FE9A9] mb-6 tracking-widest px-2">
+                            <h4 className="flex items-center gap-3 text-xs font-bold uppercase text-[#2FE9A9] mb-4 lg:mb-6 tracking-widest px-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#2FE9A9] animate-pulse"></span>
                                 Platform Intel (FAQ)
                             </h4>
@@ -527,7 +530,7 @@ const ComingSoon = () => {
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     <div
                         ref={modalOverlayRef}
-                        className="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0"
+                        className="absolute inset-0 bg-black/80 backdrop-blur-sm lg:backdrop-blur-md opacity-0"
                         onClick={handleCloseModal}
                     />
 
@@ -602,7 +605,7 @@ const ComingSoon = () => {
                                 </div>
                                 <h3 className="text-xl font-bold text-white font-oswald uppercase mb-2">Sent!</h3>
                                 <p className="text-xs text-gray-400 max-w-[220px]">
-                                    An email with a gift box containing a redeem code will arrive in your mail.
+                                    An email with a gift box containing a redeem code has been sent. Please check your spam folder if it's not in your inbox.
                                 </p>
                             </div>
                         )}
