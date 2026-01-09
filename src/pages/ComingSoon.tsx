@@ -237,7 +237,7 @@ const ComingSoon = () => {
 
     return (
 
-        <div ref={containerRef} className="bg-[#0B0E14] min-h-screen lg:h-screen w-full font-sans text-white relative flex flex-col lg:pt-0 lg:overflow-hidden touch-pan-y">
+        <div ref={containerRef} className="bg-[#0B0E14] min-h-screen w-full font-sans text-white relative flex flex-col lg:pt-0 touch-pan-y">
 
             {/* Background */}
             <div className="fixed inset-0 z-0 parallax-bg scale-105">
@@ -247,14 +247,14 @@ const ComingSoon = () => {
             </div>
 
             {/* MAIN CONTENT (Split Layout) */}
-            <div className="flex-1 w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col justify-start lg:justify-center pt-0 lg:pt-0">
+            <div className="flex-1 w-full max-w-7xl mx-auto px-4 lg:px-6 relative z-10 flex flex-col justify-start lg:justify-center pt-0 lg:pt-0 lg:py-4">
 
                 {/* Top Logo */}
-                <div className="w-full flex justify-center mb-4 lg:mb-2 mt-2 lg:mt-1">
-                    <img src={logoFull} alt="RIVALLIO" className="h-20 md:h-24 object-contain opacity-90 drop-shadow-2xl" />
+                <div className="w-full flex justify-center mb-3 lg:mb-1 mt-2 lg:mt-0">
+                    <img src={logoFull} alt="RIVALLIO" className="h-16 md:h-18 lg:h-20 object-contain opacity-90 drop-shadow-2xl" />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 w-full items-start lg:items-center pb-8 lg:pb-0">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 w-full items-start lg:items-center pb-6 lg:pb-0">
 
                     {/* LEFT COLUMN: Hero & Form */}
                     <div
@@ -264,7 +264,7 @@ const ComingSoon = () => {
                         {/* Status Badge */}
                         <div className="hero-content opacity-0">
                             <Tooltip text="System Status: Online & Stable" position="right">
-                                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#13161C]/95 lg:bg-[#13161C]/80 border border-white/5 mb-8 backdrop-blur-none lg:backdrop-blur-md shadow-2xl group cursor-default hover:border-[#2FE9A9]/30 transition-colors will-change-transform">
+                                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#13161C]/95 lg:bg-[#13161C]/80 border border-white/5 mb-4 lg:mb-6 backdrop-blur-none lg:backdrop-blur-md shadow-2xl group cursor-default hover:border-[#2FE9A9]/30 transition-colors will-change-transform">
                                     <span className="relative flex h-2 w-2">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FE9A9] opacity-75"></span>
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2FE9A9]"></span>
@@ -274,7 +274,7 @@ const ComingSoon = () => {
                             </Tooltip>
                         </div>
 
-                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-oswald font-bold leading-[0.9] tracking-tight uppercase mb-6 drop-shadow-2xl flex flex-col items-center lg:items-start">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-oswald font-bold leading-[0.9] tracking-tight uppercase mb-4 lg:mb-5 drop-shadow-2xl flex flex-col items-center lg:items-start">
                             <div className="overflow-hidden">
                                 <span className="block text-white title-line translate-y-full">Dominate</span>
                             </div>
@@ -283,12 +283,12 @@ const ComingSoon = () => {
                             </div>
                         </h1>
 
-                        <div className="w-full max-w-lg mb-6 hero-content opacity-0">
-                            <div className="relative p-6 rounded-xl bg-[#13161C]/90 lg:bg-[#13161C]/50 backdrop-blur-none lg:backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500 will-change-transform">
+                        <div className="w-full max-w-lg mb-4 lg:mb-5 hero-content opacity-0">
+                            <div className="relative p-4 lg:p-5 rounded-xl bg-[#13161C]/90 lg:bg-[#13161C]/50 backdrop-blur-none lg:backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500 will-change-transform">
                                 {/* Decorational glow */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#2FE9A9]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-[#2FE9A9]/10 transition-colors duration-500"></div>
 
-                                <p className="text-gray-400 text-sm md:text-base leading-relaxed font-medium relative z-10">
+                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-medium relative z-10">
                                     Sign up to enter Rivalioo competitive battlegrounds, earn credits from your wins, and redeem them for exciting rewards. <br className="hidden md:block" />
                                     Leave your email to get early access to events, offers, and our official launch.
                                 </p>
@@ -296,7 +296,7 @@ const ComingSoon = () => {
                         </div>
 
                         {/* Premium Email Form */}
-                        <div className="w-full max-w-md relative mb-2 lg:mb-12 hero-content opacity-0">
+                        <div className="w-full max-w-md relative mb-2 lg:mb-8 hero-content opacity-0">
                             <div className={`relative group`}>
                                 <div className={`absolute -inset-0.5 bg-gradient-to-r from-[#2FE9A9]/30 to-blue-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-1000 ${focused ? 'opacity-100 duration-200' : ''}`}></div>
 
@@ -322,7 +322,7 @@ const ComingSoon = () => {
                                         onBlur={() => setFocused(false)}
                                         disabled={isSubmitting}
                                         placeholder="Enter your email"
-                                        className="w-full bg-transparent border-none py-5 pl-14 pr-20 sm:pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
+                                        className="w-full bg-transparent border-none py-4 lg:py-5 pl-14 pr-20 sm:pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
                                     />
                                     <div className="absolute right-0 top-0 bottom-0 flex h-full p-1">
                                         <Tooltip text="Join the priority waitlist" position="bottom">
@@ -390,7 +390,7 @@ const ComingSoon = () => {
                         </div>
 
                         {/* Discord Call-to-Action (Desktop Only) */}
-                        <div className="hidden lg:flex items-center gap-6 mt-6 hero-content opacity-0">
+                        <div className="hidden lg:flex items-center gap-6 mt-4 hero-content opacity-0">
                             <div
                                 ref={discordBtnRef}
                                 onClick={() => openLink('https://discord.gg/D5u5Ey682U')}
@@ -422,15 +422,15 @@ const ComingSoon = () => {
                     {/* RIGHT COLUMN: FAQ & Socials */}
                     <div
                         ref={rightColRef}
-                        className="flex flex-col items-center lg:items-end w-full mt-8 lg:mt-0"
+                        className="flex flex-col items-center lg:items-end w-full mt-6 lg:mt-0"
                     >
                         {/* FAQ ACCORDION */}
-                        <div className="w-full max-w-md mb-10 text-left right-content opacity-0">
-                            <h4 className="flex items-center gap-3 text-xs font-bold uppercase text-[#2FE9A9] mb-4 lg:mb-6 tracking-widest px-2">
+                        <div className="w-full max-w-md mb-6 lg:mb-8 text-left right-content opacity-0">
+                            <h4 className="flex items-center gap-3 text-xs font-bold uppercase text-[#2FE9A9] mb-3 lg:mb-4 tracking-widest px-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#2FE9A9] animate-pulse"></span>
                                 Platform Intel (FAQ)
                             </h4>
-                            <Accordion type="single" collapsible className="w-full space-y-3">
+                            <Accordion type="single" collapsible className="w-full space-y-2 lg:space-y-3">
                                 {[
                                     {
                                         title: 'What is Rivalioo and how do I start playing?',
@@ -453,10 +453,10 @@ const ComingSoon = () => {
                                         value={`item-${index + 1}`}
                                         className="border border-white/5 bg-[#13161C]/50 rounded-xl overflow-hidden transition-all duration-300 data-[state=open]:border-[#2FE9A9]/30 data-[state=open]:shadow-[0_0_20px_rgba(47,233,169,0.05)]"
                                     >
-                                        <AccordionTrigger className="px-5 py-4 text-gray-300 hover:text-white text-xs font-bold uppercase tracking-widest hover:no-underline text-left transition-colors data-[state=open]:text-[#2FE9A9]">
+                                        <AccordionTrigger className="px-4 lg:px-5 py-3 lg:py-4 text-gray-300 hover:text-white text-[10px] lg:text-xs font-bold uppercase tracking-widest hover:no-underline text-left transition-colors data-[state=open]:text-[#2FE9A9]">
                                             {item.title}
                                         </AccordionTrigger>
-                                        <AccordionContent className="px-5 pb-5 text-gray-400 text-xs leading-relaxed">
+                                        <AccordionContent className="px-4 lg:px-5 pb-4 lg:pb-5 text-gray-400 text-[10px] lg:text-xs leading-relaxed">
                                             {item.content}
                                         </AccordionContent>
                                     </AccordionItem>
@@ -492,7 +492,7 @@ const ComingSoon = () => {
                         </div>
 
                         {/* Gift Button Section (Aligned with Socials) - Desktop Only */}
-                        <div className="w-full max-w-md hidden lg:flex justify-start mt-8 right-content opacity-0">
+                        <div className="w-full max-w-md hidden lg:flex justify-start mt-4 lg:mt-6 right-content opacity-0">
                             <Tooltip text="Claim Your Welcome Gift" position="bottom">
                                 <button
                                     onClick={handleGiftClick}
@@ -614,8 +614,8 @@ const ComingSoon = () => {
             )}
 
             {/* Copyright Footer */}
-            <div className="relative lg:fixed lg:bottom-0 lg:left-0 z-20 w-full py-4 flex flex-row items-center justify-center gap-4 text-gray-800 text-[10px] uppercase font-bold tracking-widest pointer-events-none mt-auto lg:mt-0">
-                <img src={logoFull} alt="RIVALIOO" className="h-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 pointer-events-auto" />
+            <div className="relative z-20 w-full py-2 lg:py-3 flex flex-row items-center justify-center gap-3 lg:gap-4 text-gray-800 text-[9px] lg:text-[10px] uppercase font-bold tracking-widest pointer-events-none mt-4 lg:mt-6">
+                <img src={logoFull} alt="RIVALIOO" className="h-3 lg:h-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 pointer-events-auto" />
                 <span className='text-white/30'>© {new Date().getFullYear()} Rivalioo. All rights reserved.</span>
             </div>
 

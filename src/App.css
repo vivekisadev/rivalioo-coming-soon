@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -11,9 +10,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +23,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -44,25 +46,38 @@
 /* Gift button animation */
 .gift-svg #gift-u-lid {
   transform-origin: 64px 53px;
-  transition: transform 280ms cubic-bezier(.22,.9,.27,1);
+  transition: transform 280ms cubic-bezier(.22, .9, .27, 1);
 }
+
 .gift-svg #gift-u-bow {
   transform-origin: 64px 46px;
-  transition: transform 280ms cubic-bezier(.22,.9,.27,1);
+  transition: transform 280ms cubic-bezier(.22, .9, .27, 1);
 }
+
 .gift-open .gift-svg #gift-u-lid {
   transform: translateY(-8px) rotate(-15deg);
 }
+
 .gift-open .gift-svg #gift-u-bow {
   transform: rotate(-8deg);
 }
+
 .gift-open .gift-svg {
-  animation: gift-pop 260ms cubic-bezier(.2,.9,.2,1);
+  animation: gift-pop 260ms cubic-bezier(.2, .9, .2, 1);
 }
+
 @keyframes gift-pop {
-  0% { transform: scale(.96); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(.96);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Discord CTA styles */
@@ -72,15 +87,21 @@
   gap: 12px;
   padding: 10px 14px;
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(19,22,28,0.6), rgba(10,12,16,0.6));
-  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(19, 22, 28, 0.6), rgba(10, 12, 16, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.03);
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
+
 .discord-cta:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(47,233,169,0.06), inset 0 -2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(47, 233, 169, 0.06), inset 0 -2px 6px rgba(0, 0, 0, 0.15);
 }
-.discord-cta svg { filter: drop-shadow(0 1px 0 rgba(0,0,0,0.4)); }
+
+.discord-cta svg {
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.4));
+}
 
 /* small bounce on hover of the Join Discord to draw attention */
-a[href*="discord.gg"]:hover { transform: translateY(-2px); }
+a[href*="discord.gg"]:hover {
+  transform: translateY(-2px);
+}
