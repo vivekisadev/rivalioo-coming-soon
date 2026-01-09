@@ -251,7 +251,7 @@ const ComingSoon = () => {
 
                 {/* Top Logo */}
                 <div className="w-full flex justify-center mb-3 lg:mb-1 mt-2 lg:mt-0">
-                    <img src={logoFull} alt="RIVALLIO" className="h-16 md:h-18 lg:h-20 object-contain opacity-90 drop-shadow-2xl" />
+                    <img src={logoFull} alt="RIVALLIO" className="h-20 md:h-24 lg:h-20 object-contain opacity-90 drop-shadow-2xl" />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 w-full items-start lg:items-center pb-6 lg:pb-0">
@@ -274,7 +274,7 @@ const ComingSoon = () => {
                             </Tooltip>
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-oswald font-bold leading-[0.9] tracking-tight uppercase mb-4 lg:mb-5 drop-shadow-2xl flex flex-col items-center lg:items-start">
+                        <h1 className="text-[60px] md:text-[72px] lg:text-7xl xl:text-8xl font-oswald font-bold leading-[0.9] tracking-tight uppercase mb-4 lg:mb-5 drop-shadow-2xl flex flex-col items-center lg:items-start">
                             <div className="overflow-hidden">
                                 <span className="block text-white title-line translate-y-full">Dominate</span>
                             </div>
@@ -284,11 +284,11 @@ const ComingSoon = () => {
                         </h1>
 
                         <div className="w-full max-w-lg mb-4 lg:mb-5 hero-content opacity-0">
-                            <div className="relative p-4 lg:p-5 rounded-xl bg-[#13161C]/90 lg:bg-[#13161C]/50 backdrop-blur-none lg:backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500 will-change-transform">
+                            <div className="relative p-5 md:p-6 lg:p-5 rounded-xl bg-[#13161C]/90 lg:bg-[#13161C]/50 backdrop-blur-none lg:backdrop-blur-xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden group hover:border-[#2FE9A9]/20 transition-all duration-500 will-change-transform">
                                 {/* Decorational glow */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#2FE9A9]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-[#2FE9A9]/10 transition-colors duration-500"></div>
 
-                                <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-medium relative z-10">
+                                <p className="text-gray-400 text-sm md:text-base leading-relaxed font-medium relative z-10">
                                     Sign up to enter Rivalioo competitive battlegrounds, earn credits from your wins, and redeem them for exciting rewards. <br className="hidden md:block" />
                                     Leave your email to get early access to events, offers, and our official launch.
                                 </p>
@@ -322,7 +322,7 @@ const ComingSoon = () => {
                                         onBlur={() => setFocused(false)}
                                         disabled={isSubmitting}
                                         placeholder="Enter your email"
-                                        className="w-full bg-transparent border-none py-4 lg:py-5 pl-14 pr-20 sm:pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
+                                        className="w-full bg-transparent border-none py-5 md:py-6 lg:py-5 pl-14 pr-20 sm:pr-32 text-sm font-medium text-white placeholder-gray-500 focus:ring-0 focus:outline-none tracking-wide disabled:opacity-50"
                                     />
                                     <div className="absolute right-0 top-0 bottom-0 flex h-full p-1">
                                         <Tooltip text="Join the priority waitlist" position="bottom">
@@ -453,10 +453,10 @@ const ComingSoon = () => {
                                         value={`item-${index + 1}`}
                                         className="border border-white/5 bg-[#13161C]/50 rounded-xl overflow-hidden transition-all duration-300 data-[state=open]:border-[#2FE9A9]/30 data-[state=open]:shadow-[0_0_20px_rgba(47,233,169,0.05)]"
                                     >
-                                        <AccordionTrigger className="px-4 lg:px-5 py-3 lg:py-4 text-gray-300 hover:text-white text-[10px] lg:text-xs font-bold uppercase tracking-widest hover:no-underline text-left transition-colors data-[state=open]:text-[#2FE9A9]">
+                                        <AccordionTrigger className="px-4 lg:px-5 py-3 lg:py-4 text-gray-300 hover:text-white text-xs lg:text-xs font-bold uppercase tracking-widest hover:no-underline text-left transition-colors data-[state=open]:text-[#2FE9A9]">
                                             {item.title}
                                         </AccordionTrigger>
-                                        <AccordionContent className="px-4 lg:px-5 pb-4 lg:pb-5 text-gray-400 text-[10px] lg:text-xs leading-relaxed">
+                                        <AccordionContent className="px-4 lg:px-5 pb-4 lg:pb-5 text-gray-400 text-xs lg:text-xs leading-relaxed">
                                             {item.content}
                                         </AccordionContent>
                                     </AccordionItem>
